@@ -4,8 +4,9 @@ var mysql = require("mysql");
 //create connection with mysql for data base
 var connection = mysql.createConnection({
     host: "127.0.0.1",
-    user: "root",
     port: 3306,
+    user: "root",
+    password: "ferhat5020",
     database: "burgers_db"
 
 });
@@ -18,4 +19,5 @@ connection.connect(function(err) {
     console.log("connected as id " + connection.threadId);
 });
 
+//Make connection for orm to use
 module.exports = connection;

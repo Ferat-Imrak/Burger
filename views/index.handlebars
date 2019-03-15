@@ -1,0 +1,47 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="/">
+    <img src="/assets/img/burgerLogo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+    Burgers
+  </a>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link" href="/api/burgers">Burger API</a>
+    </div>
+</nav>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="text-white mt-4 text-center">Burgers that are ready to eat!</h2>
+        <ul class="list-group">
+          {{#each burgers}}
+            {{#unless devoured}}
+              {{> burgers/burger-block devoured=true}}
+            {{/unless}}
+          {{/each}}
+        </ul>
+    </div>
+    <div class="col-md-6">
+      <h2 class="text-white mt-4 text-center">Burgers that have been eaten!</h2>
+        <ul class="list-group">
+          {{#each burgers}}
+            {{#if devoured}}
+              {{> burgers/burger-block devoured=false}}
+            {{/if}}
+          {{/each}}
+        </ul>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6 mx-auto">
+      <form class="makeTheBurger text-center">
+        <div class="form-group">
+        <label for="burgerForm" class="text-white formTitle">Enter the burger you'd like to create</label>
+        <textarea class="form-control" id="burgerForm" rows="3"></textarea>
+        </div>
+        <button type="submit" class="btn btn-danger">Submit</button>
+      </form>
+    </div>
+  </div>
+
+</div>
